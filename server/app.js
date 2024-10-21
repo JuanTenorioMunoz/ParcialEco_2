@@ -8,6 +8,8 @@ app.use(cors()); // utility to allow clients to make requests from other hosts o
 
 const clientApp1Path = path.resolve(__dirname, "../game");
 const clientApp2Path = path.resolve(__dirname, "../results-screen");
+const assetsPath = path.resolve(__dirname, '../server/assets'); 
+
 app.use(
   "/node_modules",
   express.static(path.join(__dirname, "../node_modules"))
@@ -18,6 +20,8 @@ app.use("/game", express.static(clientApp1Path));
 
 // Serve Client App 2
 app.use("/results", express.static(clientApp2Path));
+
+app.use('/assets', express.static(assetsPath)); 
 
 // Catch-all route for Client App 1
 app.get("/game/*", (req, res) => {

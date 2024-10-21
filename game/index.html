@@ -12,23 +12,37 @@
 </head>
 
 <body>
-  <h1>MARCO-POLO Game</h1>
-  <div id="home-welcome-screen">
-    <h2>Bienvenidos</h2>
-    <p>Ingresa tu nombre de usuario para unirte al juego</p>
-    <div id="form">
-      <input type="text" id="nickname" placeholder="nickname" />
-      <button id="join-button">Join Game</button>
+
+  <audio id="background-music" loop src="/assets/music.mp3"></audio>
+
+  
+    <button id="start-game-first">Start</button>
+
+  <div class="welcome-container">
+    <div id="title-container">
+      <h1 class="title">MARCO POLO</h1>
+      <h1 class="title">ADVENTURES DELUXE</h1>
+    </div>
+
+    <img id="theMan" src='/assets/theMan.png'>
+    <div id="home-welcome-screen">
+      <p>Ingresa tu nombre de usuario para unirte al juego</p>
+      <div id="form">
+        <input type="text" id="nickname" placeholder="nickname" />
+        <button id="join-button">Join Game</button>
+      </div>
     </div>
   </div>
+
   <div id="lobby-screen">
     <h2 id="nickname-display">nickname</h2>
     <p>
       Esperando a que otros se unan:
-      <b id="users-count"> <b>0</b></b> usuarios en la sala
+      <b id="users-count"><b>0</b></b> usuarios en la sala
     </p>
     <button id="start-button">Start game</button>
   </div>
+
   <div id="game-ground">
     <h2 id="game-nickname-display"></h2>
     <p>Tu rol es:</p>
@@ -37,13 +51,11 @@
     <div id="pool-players"></div>
     <button id="shout-button"></button>
   </div>
+
   <div id="game-over">
     <h1>Game Over</h1>
     <h2 id="game-result"></h2>
     <button id="restart-button">Restart game</button>
   </div>
-  <script src="../node_modules/socket.io-client/dist/socket.io.min.js"></script>
-  <script src="index.js"></script>
-</body>
 
 </html>

@@ -9,7 +9,7 @@ const lobbyScreen = document.getElementById("lobby-screen")
 const gameGround = document.getElementById("game-ground")
 const gameOverScreen = document.getElementById("game-over")
 
-homeScreen.style.display = "flex"
+homeScreen.style.display = "none"
 lobbyScreen.style.display = "none"
 gameGround.style.display = "none"
 gameOverScreen.style.display = "none"
@@ -18,6 +18,7 @@ gameOverScreen.style.display = "none"
 
 const userNameDisplay = document.getElementById("nickname-display")
 const gameUserNameDisplay = document.getElementById("game-nickname-display")
+const backgroundMusic = document.getElementById("background-music")
 
 // ------------- WELCOME -SCREEN -------------
 
@@ -38,9 +39,19 @@ async function joinGame() {
 // ------------- LOBBY -SCREEN ---------------
 
 const startButton = document.getElementById("start-button")
+const startGameButton = document.getElementById("start-game-first")
 const usersCount = document.getElementById("users-count")
 
+
 startButton.addEventListener("click", startGame)
+startGameButton.addEventListener("click", () => console.log("MAMAGUEVO"))
+
+const buttonStart = () => {
+      // startScreen.style.display = 'none';
+      // welcomeContainer.style.display = 'flex';
+      // backgroundMusic.play();
+      console.log("start")
+}
 
 async function startGame() {
   socket.emit("startGame") // Sends a string message to the server
