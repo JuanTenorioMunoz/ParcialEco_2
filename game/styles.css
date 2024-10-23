@@ -3,8 +3,12 @@
   max-height: auto;
 }
 
+#theIdeal {
+  width: 40vw;
+  max-height: auto;
+}
+
 body {
-    font-family: "Arial", sans-serif;
     margin: 0;
     padding: 0;
     background: #F5EDBA;
@@ -26,6 +30,12 @@ body {
     text-align: center;
     margin: 1rem 0;
     animation: fadeIn 2s ease-in-out;
+  }
+
+  .title{
+    font-family: 'Crang', sans-serif;
+    font-size: 10rem;
+    color: #ff6347;
   }
 
   h2 {
@@ -115,4 +125,11 @@ body {
     to {
       transform: translateY(0);
     }
+  }
+
+  @font-face {
+    font-family: 'Crang';
+    src: url('/assets/Crang.ttf') format('ttf');
+    font-weight: normal;
+    font-style: normal;
   }

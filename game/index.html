@@ -13,18 +13,18 @@
 
 <body>
 
-  <audio id="background-music" loop src="/assets/music.mp3"></audio>
+    <audio id="background-music" loop src="/assets/music.mp3"></audio>
 
-  
     <button id="start-game-first">Start</button>
 
-  <div class="welcome-container">
+  <div id="welcome-container">
     <div id="title-container">
       <h1 class="title">MARCO POLO</h1>
       <h1 class="title">ADVENTURES DELUXE</h1>
     </div>
 
     <img id="theMan" src='/assets/theMan.png'>
+    <img id="theIdeal" src='/assets/theIdeal.png'>
     <div id="home-welcome-screen">
       <p>Ingresa tu nombre de usuario para unirte al juego</p>
       <div id="form">
@@ -58,4 +58,6 @@
     <button id="restart-button">Restart game</button>
   </div>
 
+  <script src="../node_modules/socket.io-client/dist/socket.io.min.js"></script>
+  <script src="index.js"></script>
 </html>
