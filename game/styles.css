@@ -22,6 +22,11 @@ body {
 
   .welcome-container {
     display: flex;
+    flex-direction: column;
+  }
+
+  #pngs {
+    display: flex;
     flex-direction: row;
   }
 
