@@ -47,6 +47,7 @@ const usersCount = document.getElementById("users-count")
 const buttonStart = () => {
       homeScreen.style.display = 'flex';
       welcomeContainer.style.display = 'none';
+      startGameButton.style.display = 'none'
       backgroundMusic.play();
       console.log("hel")
 }
