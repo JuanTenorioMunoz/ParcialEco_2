@@ -8,4 +8,31 @@ const assignRoles = (players) => {
   return shuffled
 }
 
-module.exports = { assignRoles }
+const assignScore = (players) => {
+  players.forEach(element => {
+    
+  });
+}
+
+const poloScore = (winner) => {
+  const poloWin = 10
+  const poloLose = -10
+
+  if(winner == "polo"){
+    return poloWin;
+  } else{}
+    return poloLose;
+}
+
+
+const marcoScore = (winner) => {
+  const marcoWin = 50
+  const marcoLose = -10
+
+  if(winner == "polo"){
+    return marcoWin;
+  } else{}
+    return marcoLose;
+}
+
+module.exports = { assignRoles, assignScore }
