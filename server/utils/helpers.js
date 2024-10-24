@@ -8,12 +8,14 @@ const assignRoles = (players) => {
   return shuffled
 }
 
+//call the score functions depending on the player role, using the winner to determine the score. 
 const assignScore = (players) => {
   players.forEach(element => {
     
   });
 }
 
+//if the player is polo, use poloScore
 const poloScore = (winner) => {
   const poloWin = 10
   const poloLose = -10
@@ -24,7 +26,7 @@ const poloScore = (winner) => {
     return poloLose;
 }
 
-
+//if the player is marco, use marcoScore
 const marcoScore = (winner) => {
   const marcoWin = 50
   const marcoLose = -10
@@ -35,25 +37,12 @@ const marcoScore = (winner) => {
     return marcoLose;
 }
 
-const endGameByScore = (winner) => {
-  if (poloSelected.role === "polo-especial") {
-    db.players.forEach((element) => {
-      io.to(element.id).emit("notifyGameOver", {
-        message: `El marco ${myUser.nickname} ha ganado, ${poloSelected.nickname} ha sido capturado`,
-      })
-    })
-  } else {
-    db.players.forEach((element) => {
-      io.to(element.id).emit("notifyGameOver", {
-        message: `El marco ${myUser.nickname} ha perdido`,
-      })
-    })
-  }
-}
 
+//use this function everytime a round ends, to see if a player score is >=100
 const scoreEvaluator3000 = () => {
 }
 
+//sort players by alphabetical order
 const ultraComplexSortingAlgorithm = () => {
 }
 
