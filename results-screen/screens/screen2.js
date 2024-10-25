@@ -44,10 +44,13 @@ export default function renderScreen2() {
     console.log("player" + players)
   });
 
+
+  //This is function for alpha sort
   const ultraComplexSortingAlgorithm = (players) => {
     return players.sort((a, b) => a.nickname.localeCompare(b.nickname));
   }
 
+  //on click, sort alpha
   sortButton.addEventListener("click", () => {
     const sortedPlayers = ultraComplexSortingAlgorithm(playersData);
     renderPlayers(sortedPlayers);

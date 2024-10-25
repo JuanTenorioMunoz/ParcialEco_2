@@ -6,6 +6,7 @@ const joinGameHandler = (socket, db, io) => {
     db.players.push({ id: socket.id, ...user, score: 0 }) // Added score initialization
     console.log(db.players)
     io.emit("userJoined", db) // Broadcasts the message to all connected clients including the sender
+    io.emit("scoreData",  db)
   }
 }
 
