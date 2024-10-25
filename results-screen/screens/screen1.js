@@ -21,7 +21,7 @@ export default function renderScreen1() {
       const playerDiv = document.createElement("div");
       playerDiv.classList.add("player");
       playerDiv.innerHTML = `
-        <p>${player.nickname}- Puntos: ${player.score}</p>
+        <p>${player.nickname} Puntos: ${player.score}</p>
       `;
       playersContainer.appendChild(playerDiv);
     });

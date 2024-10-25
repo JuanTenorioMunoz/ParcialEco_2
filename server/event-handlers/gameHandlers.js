@@ -83,10 +83,21 @@ const onSelectPoloHandler = (socket, db, io) => {
   }
 }
 
+const requestPlayersInfoHandler = (socket, db, io) => {
+  console.log("FUCKYUO")
+  return () => {
+    const winner = db.winner
+    const players = db.players
+    io.emit("getPlayersInfo", winner, players)
+  }
+}
+
+
 module.exports = {
   joinGameHandler,
   startGameHandler,
   notifyMarcoHandler,
   notifyPoloHandler,
   onSelectPoloHandler,
+  requestPlayersInfoHandler,
 }

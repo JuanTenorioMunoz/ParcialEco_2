@@ -1,5 +1,4 @@
 import { router, socket } from "../routes.js";
-import { ultraComplexSortingAlgorithm } from "../../server/utils/helpers.js";
 
 export default function renderScreen2() {
   const app = document.getElementById("app");
@@ -11,6 +10,7 @@ export default function renderScreen2() {
         <div id="players-container"></div>
     `;
 
+  console.log("renderizo")
   const winnerContainer = document.getElementById("winner-container");
   const playersContainer = document.getElementById("players-container");
   const sortButton = document.getElementById("sort");
@@ -19,10 +19,8 @@ export default function renderScreen2() {
 
   // Function to render players in the players-container
   const renderPlayers = (players) => {
-    // Clear the players container
     playersContainer.innerHTML = "";
 
-    // Iterate over the players' data and create divs for each player with their final score
     players.forEach((player) => {
       const playerDiv = document.createElement("div");
       playerDiv.classList.add("player");
@@ -31,12 +29,21 @@ export default function renderScreen2() {
     });
   };
 
-  // Listen for the gameWon event and populate the winner and players data
-  socket.on("gameWon", (winner, players) => {
+  socket.emit("requestPlayerInfo");
+
+  // Listen for the getPlayersInfo event to add the winner and players data
+  socket.on("getPlayersInfo", (winner, players) => {
+    console.log("GINT")
     winnerContainer.innerHTML = `<p>${winner.nickname} - Puntos: ${winner.score}</p>`;
     playersData = players;
     renderPlayers(playersData);
+    console.log("WINNER" + winner)
+    console.log("player" + players)
   });
+
+  const ultraComplexSortingAlgorithm = (players) => {
+    return players.sort((a, b) => a.nickname.localeCompare(b.nickname));
+  }
 
   sortButton.addEventListener("click", () => {
     const sortedPlayers = ultraComplexSortingAlgorithm(playersData);

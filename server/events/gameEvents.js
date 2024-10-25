@@ -5,8 +5,9 @@ const {
   notifyMarcoHandler,
   notifyPoloHandler,
   onSelectPoloHandler,
+  requestPlayersInfoHandler,
 } = require("../event-handlers/gameHandlers")
-const { assignRoles } = require("../utils/helpers")
+
 
 const gameEvents = (socket, io) => {
   socket.on("joinGame", joinGameHandler(socket, db, io))
@@ -18,6 +19,9 @@ const gameEvents = (socket, io) => {
   socket.on("notifyPolo", notifyPoloHandler(socket, db, io))
 
   socket.on("onSelectPolo", onSelectPoloHandler(socket, db, io))
+
+  socket.on("requestPlayerInfo", requestPlayersInfoHandler(socket, db, io))
+
 }
 
 module.exports = { gameEvents }
