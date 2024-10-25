@@ -3,11 +3,14 @@ import { router, socket } from "../routes.js";
 export default function renderScreen2() {
   const app = document.getElementById("app");
   app.innerHTML = `
+
+    <div id="main-container">
         <h1>El ganador es:</h1>
         <div id="winner-container"></div>
         <h1>Puntuación Final</h1>
         <button id="sort">Orden alfabético</button>
         <div id="players-container"></div>
+    </div>
     `;
 
   console.log("renderizo")

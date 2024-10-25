@@ -1,4 +1,4 @@
-/* General reset and styling */
+
 * {
   margin: 0;
   padding: 0;
@@ -14,15 +14,13 @@ body, #app {
   background-color: #f0f0f0;
 }
 
-/* Scoreboard styling for screen 1 */
 #scoreboard {
   text-align: center;
   background-color: #ffffff;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-  width: 80%;
-  max-width: 600px;
+  width: 800px;
 }
 
 #scoreboard h1 {
@@ -31,7 +29,6 @@ body, #app {
   margin-bottom: 10px;
 }
 
-/* Players container styling */
 #players-container {
   display: flex;
   flex-direction: column;
@@ -48,7 +45,6 @@ body, #app {
   color: #555;
 }
 
-/* Winner container styling for screen 2 */
 #winner-container {
   text-align: center;
   background-color: #dff0d8;
@@ -59,12 +55,11 @@ body, #app {
   margin: 20px 0;
 }
 
-/* Final score section for screen 2 */
 #players-container .player {
   font-size: 1.1rem;
 }
 
-/* Sort button styling */
+
 #sort {
   padding: 10px 20px;
   font-size: 1rem;
