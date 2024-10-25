@@ -43,7 +43,7 @@ const scoreEvaluator3000 = (db, io) => {
   const winner = db.players.find((player) => player.score >= 100);
   console.log(db.players)
   if (winner) {
-    io.emit("gameWon", winner)
+    io.emit("gameWon", winner, db.players)
   }
 }
 
