@@ -37,7 +37,7 @@ export default function renderScreen2() {
     winnerContainer.innerHTML = `<p>${winner.nickname} - Puntos: ${winner.score}</p>`;
     playersData = players;
     renderPlayers(playersData);
-    console.log("WINNER" + winner)
+    console.log("WINNER" + JSON.stringify(winner))
     console.log("player" + players)
   });
 

@@ -3,6 +3,6 @@
  */
 
 const players = []
-let winner = []
+let winner = {}
 
 module.exports = { players, winner }
