@@ -76,7 +76,7 @@ const onSelectPoloHandler = (socket, db, io) => {
     }
 
     // Update scores for players
-    db.players = assignScore(db.players, winner);
+    db.players = assignScore(db.players, winner, io);
 
     // Evaluate if any player has won the game (score >= 100)
     scoreEvaluator3000(db, io);

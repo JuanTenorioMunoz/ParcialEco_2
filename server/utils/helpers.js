@@ -9,7 +9,7 @@ const assignRoles = (players) => {
 }
 
 // Call the score functions depending on the player role, using the winner to determine the score. 
-const assignScore = (players, winner) => {
+const assignScore = (players, winner, io) => {
   players.forEach((player) => {
     if (player.role === "marco") {
       player.score += marcoScore(winner);
@@ -17,6 +17,8 @@ const assignScore = (players, winner) => {
       player.score += poloScore(winner);
     }
   })
+
+  io.emit("scoreData", { players });
   return players;
 }
 
