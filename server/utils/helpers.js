@@ -43,11 +43,7 @@ const scoreEvaluator3000 = (db, io) => {
   const winner = db.players.find((player) => player.score >= 100);
   console.log(db.players)
   if (winner) {
-    db.players.forEach((element) => {
-      io.to(element.id).emit("gameWon", {
-        message: `El jugador ${winner.nickname} ha ganado con ${winner.score} puntos!`,
-      });
-    });
+    io.emit("gameWon", winner)
   }
 }
 
