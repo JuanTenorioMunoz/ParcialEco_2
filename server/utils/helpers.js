@@ -13,7 +13,7 @@ const assignScore = (players, winner, io) => {
   players.forEach((player) => {
     if (player.role === "marco") {
       player.score += marcoScore(winner);
-    } else if (player.role === "polo" || player.role === "polo-especial") {
+    } else if (player.role === "polo-especial") {
       player.score += poloScore(winner);
     }
   })
