@@ -8,42 +8,50 @@ const assignRoles = (players) => {
   return shuffled
 }
 
-//call the score functions depending on the player role, using the winner to determine the score. 
-const assignScore = (players) => {
-  players.forEach(element => {
-    
-  });
+// Call the score functions depending on the player role, using the winner to determine the score. 
+const assignScore = (players, winner) => {
+  players.forEach((player) => {
+    if (player.role === "marco") {
+      player.score += marcoScore(winner);
+    } else if (player.role === "polo" || player.role === "polo-especial") {
+      player.score += poloScore(winner);
+    }
+  })
+  return players;
 }
 
-//if the player is polo, use poloScore
+// If the player is polo, use poloScore
 const poloScore = (winner) => {
   const poloWin = 10
   const poloLose = -10
 
-  if(winner == "polo"){
-    return poloWin;
-  } else{}
-    return poloLose;
+  return winner === "polo" ? poloWin : poloLose;
 }
 
-//if the player is marco, use marcoScore
+// If the player is marco, use marcoScore
 const marcoScore = (winner) => {
   const marcoWin = 50
   const marcoLose = -10
 
-  if(winner == "marco"){
-    return marcoWin;
-  } else{}
-    return marcoLose;
+  return winner === "marco" ? marcoWin : marcoLose;
 }
 
-
-//use this function everytime a round ends, to see if a player score is >=100
-const scoreEvaluator3000 = () => {
+// Use this function every time a round ends, to see if a player score is >=100
+const scoreEvaluator3000 = (db, io) => {
+  const winner = db.players.find((player) => player.score >= 100);
+  console.log(db.players)
+  if (winner) {
+    db.players.forEach((element) => {
+      io.to(element.id).emit("gameWon", {
+        message: `El jugador ${winner.nickname} ha ganado con ${winner.score} puntos!`,
+      });
+    });
+  }
 }
 
-//sort players by alphabetical order
-const ultraComplexSortingAlgorithm = () => {
+// Sort players by alphabetical order
+const ultraComplexSortingAlgorithm = (players) => {
+  return players.sort((a, b) => a.nickname.localeCompare(b.nickname));
 }
 
-module.exports = { assignRoles, assignScore }
+module.exports = { assignRoles, assignScore, scoreEvaluator3000, ultraComplexSortingAlgorithm }
